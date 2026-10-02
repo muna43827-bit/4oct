@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12050a">
+<title>Happy Birthday Jaatni ❤️</title>
+<style>
+*{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,serif;background:#090206;color:#fff}
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 25%,#5d122b 0,#240811 32%,#090206 72%)}
+.glow{position:absolute;width:55vmax;height:55vmax;border-radius:50%;background:#ff2f71;filter:blur(90px);opacity:.16;animation:pulse 4s infinite}
+@keyframes pulse{50%{transform:scale(1.12);opacity:.24}}
+.card{position:relative;z-index:2;width:min(92vw,520px);min-height:72vh;padding:30px 22px;border:1px solid #ff6a9838;border-radius:28px;background:#16070de8;backdrop-filter:blur(16px);box-shadow:0 0 70px #ff16501c;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+h1{font-size:clamp(34px,10vw,58px);margin:10px 0;color:#ffd6e3;text-shadow:0 0 25px #ff2d69}
+p{font-family:Arial,sans-serif;color:#ffdce7;line-height:1.55}
+button{border:0;border-radius:999px;padding:15px 28px;font-weight:700;font-size:16px;color:white;background:linear-gradient(90deg,#9b123d,#ff3977);box-shadow:0 10px 35px #ff2c6638;cursor:pointer}
+.hidden{display:none!important}
+.cake{position:relative;width:230px;height:210px;margin:15px auto 5px}
+.plate{position:absolute;bottom:18px;left:15px;width:200px;height:26px;border-radius:50%;background:#ffd8e4;box-shadow:0 0 30px #ff4779}
+.layer{position:absolute;left:35px;width:160px;height:58px;border-radius:18px 18px 12px 12px;background:linear-gradient(#ff668f,#9d153e);box-shadow:inset 0 -8px 0 #6d0d2b}
+.l1{bottom:40px} .l2{bottom:88px;transform:scale(.9)} .l3{bottom:130px;transform:scale(.78)}
+.flame{position:absolute;bottom:166px;width:17px;height:27px;border-radius:50% 50% 50% 50%;background:#ffd45c;box-shadow:0 0 25px #ffb300;animation:flicker .55s infinite alternate}
+.f1{left:77px} .f2{left:106px} .f3{left:135px}
+@keyframes flicker{to{transform:scale(.78) translateY(2px)}}
+.mem img{width:min(84vw,390px);height:min(58vh,520px);object-fit:contain;border-radius:22px;box-shadow:0 20px 70px #000,0 0 35px #ff2d642b}
+.counter{font:700 13px Arial;color:#ffabc2;margin-top:14px;letter-spacing:2px}
+.caption{font-size:18px;max-width:410px;margin:16px auto 22px}
+.final h1{font-size:clamp(34px,11vw,64px)}
+.heart{font-size:55px;animation:beat 1s infinite} @keyframes beat{50%{transform:scale(1.16)}}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bit{position:absolute;width:7px;height:14px;background:#ff477b;animation:fall 2.8s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.small{font-size:13px;color:#d99aae;font-family:Arial}
+</style>
+</head>
+<body>
+<section id="intro" class="screen"><div class="bg"></div><div class="glow"></div>
+<div class="card">
+<div class="cake"><div class="plate"></div><div class="layer l1"></div><div class="layer l2"></div><div class="layer l3"></div><div class="flame f1"></div><div class="flame f2"></div><div class="flame f3"></div></div>
+<h1>Happy Birthday<br>Jaatni ❤️</h1>
+<p>SAHIL sent you a little surprise.<br>Make a wish before the memories begin.</p>
+<button id="open">✨ OPEN YOUR SURPRISE ✨</button>
+<p class="small">Tap once to enter the full-screen experience.</p>
+</div></section>
+
+<section id="mem" class="screen hidden"><div class="bg"></div><div class="glow"></div>
+<div class="card">
+<div class="counter" id="counter"></div>
+<img id="photo" src="photos/1.jpg" alt="Birthday memory">
+<div class="caption" id="caption"></div>
+<button id="next">NEXT MEMORY →</button>
+</div></section>
+
+<section id="final" class="screen hidden final"><div class="bg"></div><div class="glow"></div><div class="confetti" id="confetti"></div>
+<div class="card"><div class="heart">❤️</div><h1>Happy Birthday<br>Jaatni</h1>
+<p>May your life always be filled with happiness, beautiful moments and reasons to smile.</p>
+<p><b>4 October 2026</b></p>
+<p>With lots of love & memories,<br><b>SAHIL</b> 🫶🏻</p>
+</div></section>
+
+<script>
+const captions=["Some eyes don’t just look at you… they stay in your memories forever. 👀❤️", "A beautiful night, a beautiful view, and a memory worth keeping forever. 🌙✨", "Sometimes the most beautiful moments are the quiet ones. 🌃🤍", "That little smile that makes an ordinary moment feel special. 🥹💗", "Old memories, innocent moments, and a smile I’ll always remember. 🫶🏻✨", "Some pictures don’t need a caption… they already hold a whole feeling. ❤️📸", "There’s something beautiful about the memories we never planned to make. 🌸🤍", "A little attitude, a little innocence, and a memory full of emotions. 🖤✨", "Even in black and white, some memories still feel full of colour. 🖤🤍", "A moment of peace, wrapped in tradition, innocence and beautiful memories. ❤️✨"];
+let i=0;
+const intro=document.getElementById('intro'), mem=document.getElementById('mem'), final=document.getElementById('final');
+const photo=document.getElementById('photo'), cap=document.getElementById('caption'), counter=document.getElementById('counter');
+const song="https://youtu.be/gC7Eg0jLuyo?si=lDJzfBFcb0rkNjXu";
+
+async function full(){
+ try{if(document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();}catch(e){}
+}
+function render(){
+ photo.src=`photos/${i+1}.jpg`;
+ cap.textContent=captions[i];
+ counter.textContent=`MEMORY ${i+1} / 10`;
+}
+function confetti(){
+ const box=document.getElementById('confetti');
+ for(let k=0;k<90;k++){const b=document.createElement('i');b.className='bit';b.style.left=Math.random()*100+'%';b.style.top=(-Math.random()*30)+'%';b.style.animationDelay=Math.random()*.8+'s';b.style.transform=`rotate(${Math.random()*360}deg)`;box.appendChild(b)}
+}
+document.getElementById('open').onclick=async()=>{
+ await full(); intro.classList.add('hidden'); mem.classList.remove('hidden'); render();
+};
+document.getElementById('next').onclick=()=>{
+ if(i<9){i++;render();}
+ else{
+   mem.classList.add('hidden'); final.classList.remove('hidden'); confetti();
+   // YouTube pages generally require a user interaction; the last button click is used to open the supplied song.
+   window.open(song,'_blank','noopener');
+ }
+};
+</script>
+</body></html>
